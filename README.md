@@ -1,54 +1,95 @@
-# React + TypeScript + Vite
+# **Story Viewer App**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based Story Viewer application that allows users to view and navigate through user-generated stories, similar to Instagram or WhatsApp stories.
 
-Currently, two official plugins are available:
+## **🚀 Live Demo**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Deployment Link](https://sparkling-moonbeam-f935cc.netlify.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## **🛠 Setup & Installation**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### **1️⃣ Clone the Repository**
+
+```bash
+git clone https://github.com/jitendrasuthar1998/instagram-stories.git
+cd instagram-stories
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### **2️⃣ Install Dependencies**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+### **3️⃣ Start the Development Server**
+
+```bash
+npm run dev
+```
+
+### **4️⃣ Run Tests**
+
+```bash
+npm test
+```
+
+---
+
+## **📂 Project Structure**
+
+```
+📦 story-viewer-app
+├── 📂 src
+│   ├── 📂 components  # UI components (StoryViewer, StoryContainer, etc.)
+│   ├── 📂 data        # Mock story data
+│   ├── 📂 tests       # Unit tests for components
+│   ├── 📂 styles      # CSS/styling files
+│   ├── App.tsx        # Main entry component
+│   ├── main.tsx      # React entry point
+├── 📜 package.json   # Project dependencies
+├── 📜 README.md      # Project documentation
+```
+
+---
+
+## **💡 Design & Optimization Choices**
+
+### **1️⃣ Performance Optimizations**
+
+- **Debounced Story Navigation**: Reduces unnecessary renders and state updates.
+- **Lazy Loading**: Stories load only when required, improving initial page load speed.
+- **Memoization**: `useCallback` to optimize component re-renders.
+
+### **2️⃣ Scalability Enhancements**
+
+- **Component-Based Architecture**: `StoryViewer` and `StoryContainer` are modular, making it easy to extend functionality.
+- **State Management**: Uses `useState` and `useEffect` efficiently. Can be replaced with Redux for large-scale apps.
+- **Testing Coverage**: Ensures reliability with `@testing-library/react` tests for components.
+
+---
+
+## **🔍 Running Lint Checks & Formatting**
+
+```bash
+npm run lint  # Check for linting issues
+npm run format  # Auto-format code
+```
+
+---
+
+## **📌 Contribution Guidelines**
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature-new-update`
+3. Commit your changes: `git commit -m "Add new feature"`
+4. Push to the branch: `git push origin feature-new-update`
+5. Open a pull request
+
+---
+
+## **📧 Contact**
+
+📩 **Your Name** - [jitendrasuthar995@gmail.com](mailto:jitendrasuthar995@gmail.com)  
+🔗 **LinkedIn** - [Your LinkedIn Profile](#)
