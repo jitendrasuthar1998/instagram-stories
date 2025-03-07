@@ -17,6 +17,7 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   const currentUserStories = allStories[currentUserIndex]?.stories || [];
   const currentStory = currentUserStories[currentStoryIndex];
@@ -60,9 +61,12 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
     setIsLoading(false);
   };
 
+  const handlePause = () => setIsPaused(true);
+  const handleResume = () => setIsPaused(false);
+
   // Progress bar timer effect
   useEffect(() => {
-    if (isLoading) return;
+    if (isLoading || isPaused) return;
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
         if (prevProgress >= 100) {
@@ -75,7 +79,7 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
     }, 100);
 
     return () => clearInterval(interval);
-  }, [isLoading, goToNextStory, progress]);
+  }, [isLoading, isPaused, goToNextStory, progress]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -101,7 +105,7 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
       </div>
 
       <div className="story-progress-container">
-        {currentUserStories.map((_: unknown, index: number) => (
+        {currentUserStories.map((_, index) => (
           <div key={index} className="story-progress-bar-background">
             <div
               className="story-progress-bar"
@@ -131,7 +135,13 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
         </div>
       </div>
 
-      <div className="story-content">
+      <div
+        className="story-content"
+        onMouseEnter={handlePause}
+        onMouseLeave={handleResume}
+        onTouchStart={handlePause}
+        onTouchEnd={handleResume}
+      >
         {isLoading ? <div className="story-loading">Loading...</div> : null}
         <img
           src={currentStory.imageUrl}
