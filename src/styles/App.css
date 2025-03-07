@@ -4,6 +4,10 @@
   padding: 20px;
 }
 
+img {
+  pointer-events: none;
+}
+
 .app-header {
   text-align: center;
   margin-bottom: 20px;
