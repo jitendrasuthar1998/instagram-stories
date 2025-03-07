@@ -24,7 +24,7 @@
   align-items: center;
   font-size: 24px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
 }
 
 .story-progress-container {
@@ -114,31 +114,28 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   font-weight: bold;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
 }
 
 .story-navigation.left {
-  left: 10px;
+  left: 0px;
 }
 
 .story-navigation.right {
-  right: 10px;
+  right: 0px;
 }
 
-.story-navigation:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
 @keyframes fadeIn {
   from {
     opacity: 0;

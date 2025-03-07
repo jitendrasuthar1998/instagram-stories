@@ -98,6 +98,26 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
 
   if (!currentStory) return null;
 
+  // preloading next story
+  useEffect(() => {
+    if (currentStoryIndex < currentUserStories.length - 1) {
+      const nextStory = currentUserStories[currentStoryIndex + 1];
+      if (nextStory) {
+        const img = new Image();
+        img.src = nextStory.imageUrl;
+      }
+    } else if (currentUserIndex < allStories.length - 1) {
+      const nextUserStories = allStories[currentUserIndex + 1]?.stories || [];
+      if (nextUserStories.length > 0) {
+        const nextStory = nextUserStories[0];
+        if (nextStory) {
+          const img = new Image();
+          img.src = nextStory.imageUrl;
+        }
+      }
+    }
+  }, [currentStoryIndex, currentUserIndex, allStories, currentUserStories]);
+
   return (
     <div className="story-viewer" data-testid="story-viewer">
       <div className="story-close" onClick={onClose} data-testid="story-close">
@@ -155,16 +175,12 @@ const StoryViewer: React.FC<StoryViewerProps> = ({
         className="story-navigation left"
         data-testid="story-prev"
         onClick={goToPrevStory}
-      >
-        &#8249;
-      </div>
+      ></div>
       <div
         className="story-navigation right"
         data-testid="story-next"
         onClick={goToNextStory}
-      >
-        &#8250;
-      </div>
+      ></div>
     </div>
   );
 };
