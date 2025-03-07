@@ -82,7 +82,7 @@ npm test
 ## **📂 Project Structure**
 
 ```
-📦 story-viewer-app
+📦 instagram-stories
 ├── 📂 src
 │   ├── 📂 components  # UI components (StoryViewer, StoryContainer, etc.)
 │   ├── 📂 data        # Mock story data
