@@ -123,6 +123,7 @@
   font-weight: bold;
   color: white;
   background: transparent;
+  -webkit-tap-highlight-color: transparent;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
